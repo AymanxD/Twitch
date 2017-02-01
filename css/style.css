@@ -1,9 +1,73 @@
-.centerbox{
-  display: inline-block;
-  list-style-type: none;
-  left: 650px;
+.centerbox {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.withinbox {
+  border: 1px solid gray;
+  padding: 20px;
+  flex-basis:30em;
+
+}
+.title {
+  text-align: center;
+  color:#957BFB;
+}
+
+.icon {
+  font-size: 8888px;
+}
+.buttons{
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  text-align: center;
+  margin:10px;
+  width: 80px;
+}
+
+.All {
+  background-color: #A4D6F9;
+}
+
+.Online {
+  background-color: #A0F9A9;
+}
+
+.Offline {
+  background-color: #FB967B;
 }
 
 .Streamers {
-  text-align: center;
+  display: flex;
+  }
+
+.links{
+  color:black;
+}
+
+.links:hover {
+  text-decoration: none;
+  color:black;
+}
+.on {
+  background-color: #A0F9A9;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  }
+
+.on:hover {
+  background-color: white;
+}
+
+.img{
+  width:80px;
+  length:80px;
+}
+
+.name {
+  float: right;
 }

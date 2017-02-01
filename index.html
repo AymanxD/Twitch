@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Twitch </title>
-  
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1" >
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
-
-      <link rel="stylesheet" href="css/style.css">
-
-  
+  <script src="js/index.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/simplegrid.css">
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
 </head>
 
 <body>
-  <body>
-<div class="container-fluid">  
-  <nav class="navbar navbar-inverse centerbox">
-    <ul class="nav navbar-nav">
-      <li><a href="#">All</a></li>
-      <li><a href="#">Online</a></li>
-      <li><a href="#">Offline</a></li>
-    </ul>
-  </nav>
-  <h1 class="Streamers">Streamers </h1>
-</div>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 
-    <script src="js/index.js"></script>
+<div class="centerbox">
+  <div class="withinbox">
+    <h1 class="title">
+      <i class="fa fa-twitch"></i>
+      Twitch Streamers
+      <i class="fa fa-twitch"></i>
+    </h1>
+    <div class="buttons">
+      <button class="btn All">All</button>
+      <button class="btn Online">Online</button>
+      <button class="btn Offline">Offline</button>
+    </div>
+    <div class="Streamers">
+      <div id="All"></div>
+      <div id="Online"></div>
+      <div id="Offline"></div>
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>
