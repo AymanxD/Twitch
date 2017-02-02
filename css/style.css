@@ -7,7 +7,7 @@
 .withinbox {
   border: 1px solid gray;
   padding: 20px;
-  flex-basis:30em;
+  flex-basis:35em;
 
 }
 .title {
@@ -15,9 +15,6 @@
   color:#957BFB;
 }
 
-.icon {
-  font-size: 8888px;
-}
 .buttons{
   display: flex;
   justify-content: center;
@@ -42,6 +39,7 @@
 
 .Streamers {
   display: flex;
+  flex-direction: column;
   }
 
 .links{
@@ -57,15 +55,27 @@
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
+
   }
 
 .on:hover {
   background-color: white;
 }
 
+.off {
+  background-color: #FB967B;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  }
+
+.off:hover {
+  background-color: white;
+}
+
 .img{
-  width:80px;
-  length:80px;
+  width:100px;
+  length:100px;
 }
 
 .name {

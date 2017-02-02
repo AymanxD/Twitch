@@ -1,17 +1,20 @@
 $(document).ready(function(){
 
 
-var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
+var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas","brunofin", "comster404"];
 
       var twitch = function() {
-        $.getJSON("https://wind-bow.gomix.me/twitch-api/streams/" + channels[i], function(datas){
-          if (datas.stream !== null) {
-            online(datas);
-            console.log(datas);
-          }
+        $.getJSON("https://api.twitch.tv/kraken/streams/" + channels[i] + "?client_id=vkt06djc7pfa24zsgs0dht9lfd5p3x", function(datas){
+            console.log(datas)
           if (datas.stream === null) {
-            offline(datas);
-        }
+             offline(datas);
+          }
+         else if(datas.stream !== null) {
+           online(datas);
+            }
+         else if (typeof datas.stream === undefined) {
+           deleted(datas);
+         }
           })
 
         var online =  function(datas) {
@@ -21,30 +24,36 @@ var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck"
           }
 
         var offline = function(datas) {
-          $.getJSON("https://wind-bow.gomix.me/twitch-api/channels/" + channels[i], function(datac){
-            $("#Offline").append("<div>"+datac.display_name+"</div>")
-            console.log(datac);
+          $.getJSON(datas._links.channel  + "?client_id=vkt06djc7pfa24zsgs0dht9lfd5p3x", function(datac){
+            $("#Offline").append("<a class='links' target='_blank' href="+
+              datac.url + "><div class='off row'><img class='img col-1-3' src=" + datac.logo + ">" +
+              "<h4 class='name col-1-3'>" + datac.display_name + "</h4></div></a>")
             })
+        }
+
+        var deleted = function(datas) {
+          $("#Deleted").append("<div><h1>" + datas._links.channel + "</h1></div>");
         }
       }
     for(i=0; i< channels.length; i++) {
       twitch();
     }
-});
 
-/*
-"<a href=" + data.url +"><div class='Info col-1-1'>"+
-   "<div class='grid'>" +
-      "<img class='images col-2-12' src='" + data.logo + "'>" +
-      "<div class='name col-4-12'>"+
-       data.display_name +
-      "</div>" +
-     "<div class='followers col-5-12'>Followers: " + data.followers + "</div>" +
-    "</div>" +
-    "<div class='grid'>" +
-    "<div class='status col-6-12'>" + data.status + "</div>"+
-     "<div class='views col-6-12'> Views:" + data.views + "</div>" +
-   "</div>" +
-"</div>" +
-"</a>";
-$(".Streamers").html(html); */
+    $(".All").click(function() {
+      $("#Online").show(500);
+      $("#Offline").show(500);
+      $("#Deleted").show(500);
+    })
+
+    $(".Online").click(function() {
+      $("#Online").show(500);
+      $("#Offline").hide(500);
+      $("#Deleted").hide(500);
+    })
+
+    $(".Offline").click(function() {
+      $("#Online").hide(500);
+      $("#Offline").show(500);
+      $("#Deleted").hide(500);
+    })
+});
