@@ -5,15 +5,12 @@ var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck"
 
       var twitch = function() {
         $.getJSON("https://api.twitch.tv/kraken/streams/" + channels[i] + "?client_id=vkt06djc7pfa24zsgs0dht9lfd5p3x", function(datas){
-            console.log(datas)
-          if (datas.stream === null && datas._links.channels !== null) {
+          if (datas.stream === null) {
              offline(datas);
-          } 
+          }
          else if(datas.stream !== null) {
            online(datas);
             }
-         else
-           deleted(datas);
           })
 
         var online =  function(datas) {
@@ -23,16 +20,23 @@ var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck"
           }
 
         var offline = function(datas) {
-          $.getJSON(datas._links.channel  + "?client_id=vkt06djc7pfa24zsgs0dht9lfd5p3x", function(datac){
+          $.ajax({
+                url:datas._links.channel  + "?client_id=vkt06djc7pfa24zsgs0dht9lfd5p3x",
+                dataType:"jsonp",
+                type:"GET",
+                success:function(datac){
+          if (datac.display_name === undefined){
+            $("#Deleted").append("<div class='deleted'><h4>" + datac.message + ".</h4></div>");
+          }
+          else {
             $("#Offline").append("<a class='links' target='_blank' href="+
               datac.url + "><div class='off row'><img class='img col-1-3' src=" + datac.logo + ">" +
-              "<h4 class='name col-1-3'>" + datac.display_name + "</h4></div></a>")
-            })
-        }
+              "<h4 class='name col-1-3'>" + datac.display_name + "</h4></div></a>");
+            }
+          }
+        })
+      }
 
-        var deleted = function(datas) {
-          $("#Deleted").append("<div><h1>" + datas._links.channel + "</h1></div>");
-        }
       }
     for(i=0; i< channels.length; i++) {
       twitch();

@@ -9,7 +9,7 @@
   padding: 20px;
   flex-basis:35em;
 
-} 
+}
 .title {
   text-align: center;
   color:#957BFB;
@@ -73,6 +73,13 @@
   background-color: white;
 }
 
+.deleted {
+  background-color: #A4D6F9;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  }
+  
 .img{
   width:100px;
   length:100px;
