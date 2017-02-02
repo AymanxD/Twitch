@@ -1,3 +1,4 @@
+/* Header and buttons */
 .centerbox {
   display: flex;
   justify-content: center;
@@ -7,12 +8,13 @@
 .withinbox {
   border: 1px solid gray;
   padding: 20px;
-  flex-basis:35em;
+  flex-basis:40em;
 
 }
 .title {
   text-align: center;
-  color:#957BFB;
+  color:#AF63FC;
+  font-family: Lobster;
 }
 
 .buttons{
@@ -23,6 +25,7 @@
   text-align: center;
   margin:10px;
   width: 80px;
+  font-family: Acme;
 }
 
 .All {
@@ -37,6 +40,7 @@
   background-color: #FB967B;
 }
 
+/* Information boxes on each user */
 .Streamers {
   display: flex;
   flex-direction: column;
@@ -53,20 +57,25 @@
 .on {
   background-color: #A0F9A9;
   padding: 10px;
-  margin: 10px;
+  margin: 5px;
   border-radius: 10px;
-
+  font-family: Acme;
   }
 
 .on:hover {
   background-color: white;
 }
 
+.status {
+  font-size: 14px;
+}
+
 .off {
   background-color: #FB967B;
   padding: 10px;
-  margin: 10px;
+  margin: 5px;
   border-radius: 10px;
+  font-family: Acme;
   }
 
 .off:hover {
@@ -75,14 +84,15 @@
 
 .deleted {
   background-color: #A4D6F9;
-  padding: 10px;
+  padding: 5px;
   margin: 10px;
   border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
   }
-  
+
 .img{
-  width:100px;
-  length:100px;
+  max-width: 100px;
 }
 
 .name {

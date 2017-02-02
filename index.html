@@ -10,26 +10,32 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/simplegrid.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Acme|Lobster" rel="stylesheet">
 </head>
 
 <body>
 
+<!-- Container -->
 <div class="centerbox">
   <div class="withinbox">
+
+    <!-- Title -->
     <h1 class="title">
       <i class="fa fa-twitch" aria-hidden="true"></i>
       Twitch Streamers
       <i class="fa fa-twitch" aria-hidden="true"></i>
     </h1>
+    <!-- Buttons -->
     <div class="buttons">
       <button class="btn All">All</button>
       <button class="btn Online">Online</button>
       <button class="btn Offline">Offline</button>
     </div>
+    <!--Location where I append the information on each channel -->
     <div class="Streamers">
+      <div id="Deleted"></div>
       <div id="Online"></div>
       <div id="Offline"></div>
-      <div id="Deleted"></div>
     </div>
   </div>
 </div>
