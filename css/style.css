@@ -15,6 +15,7 @@
   text-align: center;
   color:#AF63FC;
   font-family: Lobster;
+  font-size: 50px;
 }
 
 .buttons{
@@ -97,4 +98,12 @@
 
 .name {
   float: right;
+}
+
+/* Size change */
+
+@media (max-width:600px) {
+  .title {
+    font-size: 40px;
+  }
 }
