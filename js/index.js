@@ -6,15 +6,14 @@ var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck"
       var twitch = function() {
         $.getJSON("https://api.twitch.tv/kraken/streams/" + channels[i] + "?client_id=vkt06djc7pfa24zsgs0dht9lfd5p3x", function(datas){
             console.log(datas)
-          if (datas.stream === null) {
+          if (datas.stream === null && datas._links.channels !== null) {
              offline(datas);
-          }
+          } 
          else if(datas.stream !== null) {
            online(datas);
             }
-         else if (typeof datas.stream === undefined) {
+         else
            deleted(datas);
-         }
           })
 
         var online =  function(datas) {
